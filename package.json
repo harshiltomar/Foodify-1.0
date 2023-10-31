@@ -1,0 +1,36 @@
+{
+  "name": "react",
+  "version": "1.0.0",
+  "description": "This is Namaste React lecture",
+  "main": "app.js",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "(https://github.com/harshiltomar/Namaste-React)"
+  },
+  "keywords": [
+    "react",
+    "namaste",
+    "react"
+  ],
+  "bugs": {
+    "url": "https://github.com/harshiltomar/Namaste-React"
+  },
+  "author": "Harshil Tomar",
+  "license": "ISC",
+  "homepage": "https://github.com/harshiltomar/Namaste-React",
+  "devDependencies": {
+    "parcel": "^2.10.0",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "i": "^0.3.7",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.17.0"
+  }
+}
