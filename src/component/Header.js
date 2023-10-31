@@ -30,7 +30,7 @@ const Header= () => {
                         <Link to="/cart" className="link-style">Cart</Link>
                     </li>
                     <li>
-                        {isLoggedin ? (
+                        {isLoggedin ? ( 
                         <button
                             className="logout-btn"
                             onClick={() => setIsLoggedin(false)}
