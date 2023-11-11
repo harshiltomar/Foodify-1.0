@@ -9,9 +9,6 @@ const Contact = () => {
 
   return (
     <div className="contact-container">
-      <div className="contact-left">
-      {/* <img src={} alt="" /> */}
-      </div>
       <div className="contact-right">
       <h1>Contact us</h1>
                 <form onSubmit={handleSubmit}>

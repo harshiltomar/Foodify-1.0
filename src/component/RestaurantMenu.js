@@ -1,41 +1,38 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import Shimmer from "../utils/shimmer";
-import { RESTAURANT_MENU_URL } from "../utils/constants";
 
-const RestaurantMenu = () => {
+const RestaurantMenu= () => {
 
-  const [MenuInfo, setMenuInfo]= useState(null);
+  const[resInfo, SetResInfo]= useState(null)
 
-  useEffect(()=>{
-    getMenuInfo();
-  }, []);
+  useEffect(()=> {
+    fetchMenu();
+  },[]);
 
-  const getMenuInfo= async ()=> {
-    const MenuResponse= await fetch(
-      RESTAURANT_MENU_URL
-    )
+  const fetchMenu= async ()=> {
+    const data= await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6304203&lng=77.21772159999999&restaurantId=8614&catalog_qa=undefined&submitAction=ENTER");
+    const json= await data.json();
 
-    const MenuSubData= await MenuResponse.json();
-    setMenuInfo(MenuSubData.data)
+    // console.log(json?.data.cards[0].card.card.info.name);
+    SetResInfo(json?.data.cards[0].card.card.info);
   }
 
-  const {name, cuisines, costForTwoMessage,}= MenuInfo?.cards[0]?.card?.card?.info || {};
+  const {name, cuisines, costForTwoMessage}= resInfo?.data?.cards[0]?.card?.card?.info || {};
 
-  const {itemCards}= MenuInfo?.cards.find(x=> x.groupedCard)?.groupedCard?.cardGroupMap?.REGULAR?.cards?.map(x => x.card?.card)?.filter(x=> x['@type'] == MENU_ITEM_TYPE_KEY)?.
-  map(x=> x.itemCards).flat().map(x=> x.card?.info) || [];
-
-  return MenuInfo === null ? <Shimmer/> : (
+  // console.log(resInfo?.data?.cards[0]?.card?.card?.info.name);
+  return resInfo===null? (
+    <Shimmer/>
+  ) : (
     <div className="menu">
-        <h3>{name}</h3>
-        <p>
-          {cuisines.join(", ")} - {costForTwoMessage}
-        </p>
-        <h2>Menu</h2>
-        <ul>
-            <li>Biryani</li>
-            <li>Burger</li>
-            <li>Diet Coke</li>
-        </ul>
+      <h1>{resInfo.name}</h1>
+      <h3>{resInfo.cuisines}</h3>
+      <h3>{resInfo.costForTwoMessage}</h3>
+      <h2>Menu</h2>
+      <ul>
+        <li>Biryani</li>
+        <li>Burgers</li>
+        <li>Diet Coke</li>
+      </ul>
     </div>
   )
 }
