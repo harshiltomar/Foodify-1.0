@@ -107,6 +107,7 @@ button {
 
 /* Restaurant Card Styles */
 .res-container {
+    text-decoration: none;
     display: flex;
     flex-wrap: wrap;
 }
@@ -305,3 +306,61 @@ button {
     font-weight: bold;
 }
 
+
+/* RestaurantMenu Styles */
+.menu {
+    display: flex;
+    background-color: #f8f8f8;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.menu-left {
+    flex: 1;
+}
+
+.menu h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.menu h3 {
+    font-size: 18px;
+    color: #666;
+}
+
+.menu-items {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between; /* Adjust as needed */
+    background-color: #f8f8f8;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.menu-item {
+    width: 100%; /* Adjust as needed for the desired spacing */
+    margin-bottom: 20px;
+}
+
+.menu-item h3 {
+    font-size: 16px;
+    margin: 5px 0;
+    color: #333;
+}
+
+.menu-right img {
+    width: 100%; /* Make the image fill the width of the container */
+    border-radius: 8px;
+}
+
+
+/* Add more styling for menu items as needed */
