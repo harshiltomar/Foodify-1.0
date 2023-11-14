@@ -65,4 +65,5 @@ There is a dynamic route for each restaurant which loads dynamic content to disp
 - Conventionally(function based component), first we load a component and when the component has been loaded, we make API call to fetch the data
 - i.e Loads->Render->API->Render
 - Thus in class based component, cdm is used to perform the same above task instead of delaying till fetch completion
-- React lifecycle !(image)(https://i0.wp.com/programmingwithmosh.com/wp-content/uploads/2018/10/Screen-Shot-2018-10-31-at-1.44.28-PM.png?ssl=1)
+- React lifecycle ![image](https://github.com/harshiltomar/Foodify-1.0/assets/110554721/f1b73da9-89f1-496c-9c89-d36ec9558865)
+
