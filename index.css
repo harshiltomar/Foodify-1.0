@@ -107,7 +107,6 @@ button {
 
 /* Restaurant Card Styles */
 .res-container {
-    text-decoration: none;
     display: flex;
     flex-wrap: wrap;
 }
@@ -219,6 +218,15 @@ button {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.user-card  h1 {
+    color: #ff7433
+}
+
+.user-card h4 {
+    font-size: 18px;
+    color: #666
+}
+
 /* Responsive Styles */
 @media (max-width: 768px) {
     .about-container {
@@ -315,7 +323,7 @@ button {
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px;
+    margin: 20px 40px;
 }
 
 .menu-left {
@@ -343,10 +351,13 @@ button {
     border: 1px solid #ddd;
     border-radius: 8px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
-    margin: 20px;
+    margin: 20px 40px;
 }
 
 .menu-item {
+    flex: 1;
+    font-size: 18px;
+    color: #666;
     width: 100%; /* Adjust as needed for the desired spacing */
     margin-bottom: 20px;
 }
@@ -362,5 +373,13 @@ button {
     border-radius: 8px;
 }
 
-
-/* Add more styling for menu items as needed */
+.count-increase {
+    background-color: #ff7433;
+    height: 40px;
+    border: #ff7433 solid;
+    border-radius: 4px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

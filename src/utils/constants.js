@@ -6,7 +6,3 @@ export const SWIGGY_API_URL = "https://www.swiggy.com/dapi/restaurants/list/v5?l
 
 //SWWIGY_MENU_API_URL
 export const SWIGGY_API_MENU_URL = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=28.6304203&lng=77.21772159999999&restaurantId="
-
-export const MENU_ITEM_TYPE_KEY = "type.googleapis.com/swiggy.presentation.food.v2.NestedItemCategory";
-
-export const RESTAURANT_TYPE_KEY = "type.googleapis.com/swiggy.presentation.food.v2.Restaurant";

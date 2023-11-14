@@ -33,7 +33,7 @@ Footer
 # Exporting
 Two types of Export/Import:
 
-- Default 
+- export Default {function based component name} 
 - export with var
 
 # Naming convention:
@@ -58,4 +58,10 @@ Two types of Export/Import:
 - Server Side Routing
 
 # Dynmaic Routing
-There is a dynamic route for each restaurant which loads dynamix content
+There is a dynamic route for each restaurant which loads dynamic content to display on the Res-card page for each restaurant
+
+# ComponentDidMount
+- to Make API Call
+- Conventionally(function based component), first we load a component and when the component has been loaded, we make API call to fetch the data
+- i.e Loads->Render->API->Render
+- Thus in class based component, cdm is used to perform the same above task instead of delaying till fetch completion

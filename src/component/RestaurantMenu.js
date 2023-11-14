@@ -30,8 +30,13 @@ const RestaurantMenu = () => {
     return <Shimmer />;
   }
 
-  const { name, cuisines, costForTwoMessage } = resInfo?.cards[0]?.card?.card?.info;
-  const itemCards = resInfo?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.carousel;
+  const { name, cuisines, costForTwoMessage, avgRating } = resInfo?.cards[0]?.card?.card?.info;
+
+  const itemCards = resInfo?.cards.find(x=> x.groupedCard)?.
+  groupedCard?.cardGroupMap?.REGULAR?.
+  cards?.map(x => x.card?.card)?.
+  filter(x=> x['@type'] == "type.googleapis.com/swiggy.presentation.food.v2.ItemCategory" )?.
+  map(x=> x.itemCards).flat().map(x=> x.card?.info) || [];
 
   if (!name || !itemCards) {
     return <div>No data available</div>;
@@ -44,6 +49,9 @@ const RestaurantMenu = () => {
           <h1>{name}</h1> 
           <h3>{cuisines.join(", ")}</h3>
           <h3>Avg Price: {costForTwoMessage}</h3>
+          <h3>Avg Rating: {avgRating}</h3>
+        </div>
+        <div className="restaurant-summary">
         </div>
         <div className="menu-right">
           <img src={CDN_URL + resInfo?.cards[0]?.card?.card?.info.cloudinaryImageId} alt={name} />
@@ -51,10 +59,10 @@ const RestaurantMenu = () => {
       </div>
 
       <div className="menu-items">
-        <h1>REGULAR MENU:</h1>
+        <h1>MENU:</h1>
         {itemCards.map((item) => (
-          <div key={item?.dish?.info?.name} className="menu-item">
-            <li>{item?.dish?.info?.name} - Rs.{item?.dish?.info?.price/100}</li>
+          <div key={item?.name} className="menu-item">
+            <li>{item?.name} - Rs.{item?.price/100}</li>
           </div>
         ))}
       </div>
