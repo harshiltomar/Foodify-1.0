@@ -84,6 +84,7 @@ There is a dynamic route for each restaurant which loads dynamic content to disp
 - Conventionally(function based component), first we load a component and when the component has been loaded, we make API call to fetch the data
 - i.e Loads->Render->API->Render
 - Thus in class based component, cdm is used to perform the same above task instead of delaying till fetch completion
+<<<<<<< HEAD
 
 # Modularity
 - Breaking down code into smaller and simpler parts so that your code becomes much more easy to manage and update/customize
@@ -93,3 +94,7 @@ There is a dynamic route for each restaurant which loads dynamic content to disp
 #ESLinters
 - Tools [ESLint] that gives set of rules for JavaScript code that cover stylistic choices and prevent common bugs.
 - Available to add React-specific rules that will help you write solid React applications.
+=======
+- React lifecycle ![image](https://github.com/harshiltomar/Foodify-1.0/assets/110554721/f1b73da9-89f1-496c-9c89-d36ec9558865)
+
+>>>>>>> b241c6f533460a9f781f27d3de10fe8e0571c026
