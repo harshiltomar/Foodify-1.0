@@ -11,6 +11,25 @@ JSX (transplied before it reached the JS) - PARCEL - Babel
 
 JSX => React.createElement => ReactElement-JS Object => HTMLElement(Render)
 
+# Parcel
+- Dev Build
+- Local Server
+- HMR: Hot Module Reload
+- File Watching Algorithm- writeen in C++
+- Caching: Faster Builds
+- Image Optimization
+- Minification
+- Bundling: Taking all your files and bundle into one
+- Compress
+- Consistent Hashing
+- Code Splitting
+- Diffrential Bundling: Support older browser
+- Diagnostic
+- Error Handling
+- HTTPs
+- Tree Shaking: remove unused code
+- Different dev and product bundles
+
 # Design
 Header
 - Logo
@@ -65,3 +84,12 @@ There is a dynamic route for each restaurant which loads dynamic content to disp
 - Conventionally(function based component), first we load a component and when the component has been loaded, we make API call to fetch the data
 - i.e Loads->Render->API->Render
 - Thus in class based component, cdm is used to perform the same above task instead of delaying till fetch completion
+
+# Modularity
+- Breaking down code into smaller and simpler parts so that your code becomes much more easy to manage and update/customize
+- We write test cases for each and every sub component file which can help us catch edge cases and bugs very easily
+- Based upon Single Responsibility Principle and thus helps improve scopr of Testing
+
+#ESLinters
+- Tools [ESLint] that gives set of rules for JavaScript code that cover stylistic choices and prevent common bugs.
+- Available to add React-specific rules that will help you write solid React applications.

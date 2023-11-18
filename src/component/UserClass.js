@@ -4,33 +4,53 @@ class UserClass extends React.Component {
   constructor(props) {
     super(props);
 
-    console.log(props);
-    this.state= {
-        count: 0,
-        count2: 2,
+    // Local State Variable
+    this.state = {
+      count: 0,
+      userInfo: {
+        name: "Dummy",
+        location: "DummyL",
+        avatar_url: "https://DummyA",
+      },
     };
-    console.log("Child Constructor");
   }
 
-  componentDidMount() {
-    console.log("Child Component did Mount")
+  // Making an API call in class-based component
+  async componentDidMount() {
+    try {
+      const data = await fetch("https://api.github.com/users/harshiltomar");
+      const json = await data.json();
+      console.log(json);
+
+      // Update state with fetched data
+      this.setState({
+        userInfo: json,
+      });
+    } catch (error) {
+      console.error("Error fetching data:", error);
+    }
   }
+
+  handleCountIncrease = () => {
+    // Never update state variables directly; instead, use this.setState to perform an update
+    this.setState((prevState) => ({
+      count: prevState.count + 1,
+    }));
+  };
 
   render() {
-    const {name, location}= this.props;
-    const {count}= this.state;
-    console.log("Child Render");
-    
+    const { count, userInfo } = this.state;
+    const { avatar_url, name, location } = userInfo;
+
+    console.log(location. name);
+
     return (
       <div className="user-card">
+        <img src={avatar_url} className="about-img"></img>
         <h1>Founder Name: {name}</h1>
-        <button onClick={()=> {
-            //Never Update State Variables Directly
-            this.setState({
-                count: this.state.count+1,
-            }); 
-        }} 
-        className="count-increase">Count++</button>
+        <button onClick={this.handleCountIncrease} className="count-increase">
+          Count++
+        </button>
         <h4>Count: {count}</h4>
         <h4>Location: {location}</h4>
         <h4>Contact: harshiltomar20@gmail.com</h4>
@@ -40,3 +60,20 @@ class UserClass extends React.Component {
 }
 
 export default UserClass;
+
+
+/*
+MOUTNING LIFECYCLE:
+- Constructor (dummy)
+- Render (dummy data)
+- HTML Dummy
+- ComponentDidMount
+- API Call
+- this.setState
+
+UPDATE CYCLE BEGINS:
+- Render (API Data)
+- DOM Updated
+- HTMl (new API Data)
+- Component Did Update
+*/

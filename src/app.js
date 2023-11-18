@@ -1,4 +1,4 @@
-import React from "react";
+import React, { lazy, Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import Header from "./component/Header";
 import Body from "./component/Body";
@@ -8,25 +8,14 @@ import About from "./component/About";
 import Contact from "./component/Contact";
 import Error from "./component/Error";
 import RestaurantMenu from "./component/RestaurantMenu";
-  
-/* My Food App structure will look like this, 
-            1) Header
-                - Logo
-                - Nav Items(right side)
-                - Cart
-            2) Body
-                - Search bar
-                - Restaurants List
-                    - Restaurant card
-                        - Image
-                        - Name
-                        - Rating
-            3) Footer
-                - Links
-                - Copyrights
-       
-*/
 
+// import Grocery from "./component/Grocery";
+
+//Chunking | Code-Splitting | Dynamic Bundling | Lazy Loading | On-demand Loading:
+
+const Grocery= lazy(()=>
+    import("./component/Grocery")
+);
 
 //The Outlet here gets replaced by the component based on the path in appRouter
 const AppLayout= () => {
@@ -60,6 +49,14 @@ const appRouter= createBrowserRouter([
             {
                 path: "/contact",
                 element: <Contact />,
+            },
+            {
+                path: "/grocery",
+                element: (
+                    <Suspense fallback={<h1>Loading..</h1>}>
+                        <Grocery />
+                    </Suspense>
+                ),
             },
             {
                 path: "/restaurants/:resId",

@@ -3,6 +3,7 @@ import { useEffect,useState } from "react";
 import Shimmer from "../utils/shimmer";
 import { SWIGGY_API_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
+import useOnlineStatus from "../utils/useOnlineStatus";
 
 function filterData(searchText, restaurants) {
     const resFilterData= restaurants.filter(
@@ -20,6 +21,7 @@ function filterData(searchText, restaurants) {
 
 const Body= () => {
 
+    //Local State Variable- Super powerful variable
     // useState: To create a state variable, searchText, allRestaurants and filteredRestaurants is local state variable
     const [AllRestaurants, setAllRestaurants] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
@@ -56,8 +58,7 @@ const Body= () => {
     
         setAllRestaurants(resData);
         setFilteredRestaurants(resData);
-    };
-    
+    };    
 
     const searchData= (searchText,AllRestaurants)=> {
         if(searchText!=="") {
@@ -72,6 +73,11 @@ const Body= () => {
             setErrorMessage("");
             setFilteredRestaurants(AllRestaurants);
         }
+    }
+
+    const onlineStatus= useOnlineStatus();
+    if(onlineStatus===false) {
+        return <h1>Look's like You are offline!! Please check your Internet Connection</h1>
     }
 
     if(!AllRestaurants) return null;
@@ -107,6 +113,7 @@ const Body= () => {
                     <Link 
                     key={restaurant.info.id}
                     to={"restaurants/"+restaurant.info.id}
+                    style={{textDecoration: 'none', color: 'black'}}
                     >
                         <RestrauntCard key={restaurant.info.id} {...restaurant.info}/>
                     </Link>)

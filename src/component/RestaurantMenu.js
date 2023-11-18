@@ -1,30 +1,13 @@
-import { useEffect, useState } from "react";
 import Shimmer from "../utils/shimmer";
 import { CDN_URL } from "../utils/constants";
-import { SWIGGY_API_MENU_URL } from "../utils/constants";
+import useRestrauntMeu from "../utils/useRestrauntMenu";
 import { useParams } from "react-router-dom";
 
 const RestaurantMenu = () => {
-  const [resInfo, setResInfo] = useState(null);
+  //const [resInfo, setResInfo] = useState(null);
   const {resId} = useParams();
 
-  useEffect(() => {
-    fetchMenu();
-  }, []);
-
-  const fetchMenu = async () => {
-    try {
-      const data = await fetch(
-        SWIGGY_API_MENU_URL + resId + "&catalog_qa=undefined&submitAction=ENTER"
-      );
-
-      const json = await data.json();
-
-      setResInfo(json.data);
-    } catch (error) {
-      console.error("Error fetching menu:", error);
-    }
-  };
+  const resInfo= useRestrauntMeu(resId);
 
   if (resInfo === null) {
     return <Shimmer />;
