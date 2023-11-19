@@ -1,9 +1,10 @@
-import RestrauntCard from "./RestrauntCard";
+import RestaurantCard, {withVegLabel} from "./RestaurantCard";
 import { useEffect,useState } from "react";
 import Shimmer from "../utils/shimmer";
 import { SWIGGY_API_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
+import { withVegLabel } from "./RestaurantCard";
 
 function filterData(searchText, restaurants) {
     const resFilterData= restaurants.filter(
@@ -25,14 +26,19 @@ const Body= () => {
     // useState: To create a state variable, searchText, allRestaurants and filteredRestaurants is local state variable
     const [AllRestaurants, setAllRestaurants] = useState([]);
     const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+    
     const [searchText,setsearchText]= useState("");
+      
     const [errorMessage, setErrorMessage] = useState("");
+    const RestaurantCardVeg= withVegLabel(RestaurantCard);
     // Whenever state variables update, react triggers a reconiliation cycle (re-renders the component)
 
     // use useEffect for one time call getRestaurants using empty dependency array
     useEffect(() => {
         getResaurants();
     }, []);
+
+    console.log(AllRestaurants);
 
     async function getResaurants () {
         const response = await fetch(
@@ -115,7 +121,9 @@ const Body= () => {
                     to={"restaurants/"+restaurant.info.id}
                     style={{textDecoration: 'none', color: 'black'}}
                     >
-                        <RestrauntCard key={restaurant.info.id} {...restaurant.info}/>
+                        {restaurant.info.veg? (
+                            <RestaurantCardVeg {...restaurant.info}/>) :
+                         (<RestaurantCard key={restaurant.info.id} {...restaurant.info}/>)}
                     </Link>)
                 }
             </div>           
