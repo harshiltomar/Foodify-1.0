@@ -1,16 +1,21 @@
 import React from 'react';
 import { CDN_URL } from "../utils/constants";
+import UserContext from '../utils/UserContext';
+import { useContext } from 'react';
+import UserContext from '../utils/UserContext';
 
 // Restaurant card component: Image, name, cuisine
-const RestaurantCard = ({
+const RestaurantCard = (
+  {
   cloudinaryImageId,
   name,
   cuisines,
   areaName,
   avgRating,
   costForTwo,
-  veg
 }) => {
+
+  const { loggedInUser } = useContext(UserContext);
 
   // Display up to 3 cuisine keywords
   const displayedCuisines = cuisines.slice(0, 3).join(", ");

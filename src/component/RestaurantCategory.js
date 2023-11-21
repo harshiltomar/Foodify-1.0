@@ -1,17 +1,15 @@
 import React, { useState } from "react";
 import ItemList from "./ItemList";
 
-const RestaurantCategory = ({ data }) => {
-  console.log(data)
-  const [isAccordionOpen, setIsAccordionOpen] = useState(false);
+const RestaurantCategory = ({ data, showItems, setShowIndex, dummy }) => {
 
   const handleClick = () => {
-    setIsAccordionOpen(!isAccordionOpen);
+    setShowIndex((prevIndex) => (prevIndex === null ? null : prevIndex === data.index ? null : data.index));
   };
 
   return (
-    <div className={`RestaurantCategory ${isAccordionOpen ? "active" : ""}`}>
-      {/* Header */} 
+    <div className={`RestaurantCategory ${showItems ? "active" : ""}`}>
+      {/* Header */}
       <header onClick={handleClick}>
         <span className="title">
           {data.title} ({data.itemCards.length})
@@ -20,9 +18,10 @@ const RestaurantCategory = ({ data }) => {
       </header>
 
       {/* Accordion Body */}
-      {isAccordionOpen && <ItemList className="item-List" items={data.itemCards} />}
+      {showItems && <ItemList className="item-List" items={data.itemCards} dummy={dummy}/>}
     </div>
   );
 };
 
 export default RestaurantCategory;
+ 

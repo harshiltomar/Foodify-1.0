@@ -1,10 +1,10 @@
 import RestaurantCard, {withVegLabel} from "./RestaurantCard";
-import { useEffect,useState } from "react";
+import { useContext, useEffect,useState } from "react";
 import Shimmer from "../utils/shimmer";
 import { SWIGGY_API_URL } from "../utils/constants";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
-import { withVegLabel } from "./RestaurantCard";
+import UserContext from "../utils/UserContext";
 
 function filterData(searchText, restaurants) {
     const resFilterData= restaurants.filter(
@@ -38,7 +38,12 @@ const Body= () => {
         getResaurants();
     }, []);
 
-    console.log(AllRestaurants);
+    const onlineStatus= useOnlineStatus();
+    if(onlineStatus===false) {
+        return <h1 className="offline">Look's like You are offline!! Please check your Internet Connection</h1>
+    }
+
+    const {loggedInUser, SetUserName}= useContext(UserContext);
 
     async function getResaurants () {
         const response = await fetch(
@@ -81,13 +86,7 @@ const Body= () => {
         }
     }
 
-    const onlineStatus= useOnlineStatus();
-    if(onlineStatus===false) {
-        return <h1>Look's like You are offline!! Please check your Internet Connection</h1>
-    }
-
     if(!AllRestaurants) return null;
-    //Conditional Rendering
     
     return AllRestaurants.length === 0 ? <Shimmer/>: (
         <div className="body">
@@ -106,12 +105,20 @@ const Body= () => {
                 <button className="filter-btn"
                 onClick={()=>{
                     const FilteredRestaurants= AllRestaurants.filter(
-                        (resData) => resData.info.avgRating >= 4.0
+                        (resData) => resData.info.avgRating >= 4.2
                     )
                     setFilteredRestaurants(FilteredRestaurants);
                 }}>
                     Top Rated
                 </button>
+                {/* <div>
+                    <label className="user-search">Enter UserName: </label>
+                    <input 
+                        className="input-box" 
+                        value={loggedInUser}
+                        onChange={(e)=> SetUserName(e.target.value)}
+                    />
+                </div> */}
             </div>
             <div className="res-container">
                 {

@@ -1,5 +1,5 @@
-const ItemList = ({ items }) => {
-    console.log(items);
+const ItemList = ({ items , dummy}) => {
+    console.log(dummy);
     return (
       <div>
         {items.map((item) => (

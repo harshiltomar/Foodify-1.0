@@ -1,3 +1,4 @@
+import UserContext from "../utils/UserContext";
 import { LOGO_URL } from "../utils/constants";
 import User from "./User";
 import UserClass from "./UserClass"
@@ -21,6 +22,12 @@ class About extends React.Component {
     return (
       <div className="about-container">
         <div className="about-left">
+          <div>
+            loggedInUser
+            <UserContext.Consumer>
+              {({loggedInUser})=> <h1>{loggedInUser}</h1>}
+            </UserContext.Consumer>
+          </div>
           <h1>
             Welcome to <br /> The world of <br /> <span>Tasty & Fresh Food</span>
           </h1>

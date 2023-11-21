@@ -64,7 +64,7 @@
     font-size: 16px;
     border: 1px solid #ff7433;
     border-radius: 5px;
-    width: 500px;
+    width: 400px;
     margin-right: 10px;
     transition: border-color 0.3s ease;
 }
@@ -104,6 +104,24 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
+}
+
+.filter .user-search {
+    color: #ff7433;
+    padding: 10px;
+    margin: 10px;
+    margin-left: 40px;
+    font-weight: bold;
+}
+
+.filter .input-box {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ff7433;
+    border-radius: 5px;
+    width: 200px;
+    margin: 10px;
+    transition: border-color 0.3s ease;
 }
 
 /* Restaurant Card Styles */
@@ -333,6 +351,16 @@ button {
 
 
 /* RestaurantMenu Styles */
+
+.MenuWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Menu {
+    width: 70%;
+}
 .menu {
     display: flex;
     background-color: #f8f8f8;
@@ -361,7 +389,7 @@ button {
 .menu-items {
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
     justify-content: space-between; 
     padding: 20px;
     margin: 20px 40px;
@@ -528,6 +556,25 @@ footer {
 .container {
     max-width: 1200px;
     margin: 0 auto;
+}
+
+/* Grocery Component Styles */
+.offline {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    background-color: #f8f8f8; 
+    padding: 20px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px 40px;
+    border-radius: 8px;
+}
+
+.offline h1 {
+    font-size: 24px;
+    text-align: center;
+    color: #333; 
 }
   
 
