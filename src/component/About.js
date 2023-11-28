@@ -23,10 +23,9 @@ class About extends React.Component {
       <div className="about-container">
         <div className="about-left">
           <div>
-            loggedInUser
-            <UserContext.Consumer>
+            {/* <UserContext.Consumer>
               {({loggedInUser})=> <h1>{loggedInUser}</h1>}
-            </UserContext.Consumer>
+            </UserContext.Consumer> */}
           </div>
           <h1>
             Welcome to <br /> The world of <br /> <span>Tasty & Fresh Food</span>

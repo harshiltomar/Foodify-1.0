@@ -4,6 +4,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import useOnlineStatus from "../utils/useOnlineStatus";
 import UserContext from "../utils/UserContext";
+import { useSelector } from "react-redux";
 
 const Header= () => {
     /*is a bool function with default value true+Login
@@ -13,6 +14,11 @@ const Header= () => {
 
     const {loggedInUser}= useContext(UserContext);
     console.log(loggedInUser);
+
+
+    //Selector is a hook inside React
+    //Here we are subscribing to the store using a selector
+    const cartItems= useSelector((store)=> store.cart.items);
 
     return (
         <div className="header">
@@ -39,7 +45,7 @@ const Header= () => {
                         <Link to="/grocery" className="link-style">Grocery</Link>
                     </li>
                     <li>
-                        <Link to="/cart" className="link-style">Cart</Link>
+                        <Link to="/cart" className="link-style">Cart: {cartItems.length} items</Link>
                     </li>
                     <li>
                         {isLoggedin ? ( 
@@ -55,7 +61,7 @@ const Header= () => {
                         </button>
                         )}
                     </li>
-                    <li>{loggedInUser}</li>
+                    {/* <li>{loggedInUser}</li> */}
                 </ul>
             </div>
         </div>

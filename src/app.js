@@ -10,8 +10,8 @@ import Error from "./component/Error";
 import RestaurantMenu from "./component/RestaurantMenu";
 import UserContext from "./utils/UserContext";
 import Cart from "./component/Cart";
-
-// import Grocery from "./component/Grocery";
+import { Provider } from "react-redux";
+import appStore from "./utils/appStore";
 
 //Chunking | Code-Splitting | Dynamic Bundling | Lazy Loading | On-demand Loading:
 
@@ -37,6 +37,7 @@ const AppLayout= () => {
     }, [])
 
     return (
+        <Provider store={appStore}>
         <UserContext.Provider value={{loggedInUser: userName}}>
         <div className= "app">
             <Header/>
@@ -44,6 +45,7 @@ const AppLayout= () => {
             <Footer/>
         </div>
         </UserContext.Provider>
+        </Provider>
     )
 };
 

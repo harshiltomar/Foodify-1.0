@@ -48,12 +48,22 @@ class UserClass extends React.Component {
       <div className="user-card">
         <img src={avatar_url} className="about-img"></img>
         <h1>Founder Name: {name}</h1>
-        <button onClick={this.handleCountIncrease} className="count-increase">
+        {/* <button onClick={this.handleCountIncrease} className="count-increase">
           Count++
-        </button>
-        <h4>Count: {count}</h4>
+        </button> */}
+        {/* <h4>Count: {count}</h4> */}
         <h4>Location: {location}</h4>
-        <h4>Contact: harshiltomar20@gmail.com</h4>
+        <ul><h4>Connect with Me:</h4>
+          <li>
+            <h4><a href="mailto:harshiltomar20@gmail.com">GMAIL</a></h4>
+          </li>
+          <li>
+           <h4><a href="https://github.com/harshiltomar/Foodify-1.0">GITHUB</a></h4>
+          </li>
+          <li>
+            <h4><a href="https://www.linkedin.com/in/harshiltomar/">LINKEDIN</a></h4>
+          </li>
+        </ul>
       </div>
     );
   }

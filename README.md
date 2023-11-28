@@ -107,3 +107,11 @@ There is a dynamic route for each restaurant which loads dynamic content to disp
 # Higher Order Component
 - It is a function that takes a component as an arguement and returns a new component that wraps the original component
 - Kind of a resuing component Logic
+
+# Redux Toolkit
+- Install @reduxjs/toolkit and react-redux
+- Build our own store
+- Connect out store to our app
+- Slice (cartSlice)
+- dispatch (action)
+- Selector
