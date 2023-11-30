@@ -2,8 +2,8 @@
 -![image](https://github.com/harshiltomar/Foodify-1.0/assets/110554721/00774b16-e3b6-46b2-8795-0dce04babc11)
 -![image](https://github.com/harshiltomar/Foodify-1.0/assets/110554721/c36c0004-81d1-42dc-ad0d-cda6ae6547b6)
 -![image](https://github.com/harshiltomar/Foodify-1.0/assets/110554721/a4babbc1-36c4-4564-83e0-9c111b9a217a)
-![2](https://github.com/harshiltomar/Foodify-1.0/assets/110554721/659a7ef3-1744-4212-a08d-23b9b02a064a)
-![4](https://github.com/harshiltomar/Foodify-1.0/assets/110554721/3e952ff5-34d0-4ce9-b4be-eaa397ff0cca)
+-![2](https://github.com/harshiltomar/Foodify-1.0/assets/110554721/659a7ef3-1744-4212-a08d-23b9b02a064a)
+-![4](https://github.com/harshiltomar/Foodify-1.0/assets/110554721/3e952ff5-34d0-4ce9-b4be-eaa397ff0cca)
 
 
 
